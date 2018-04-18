@@ -4,27 +4,30 @@ from tweepy import OAuthHandler
 from tweepy.streaming import StreamListener
 import tweepy
 
-app = Flask(__name__)
-app.config.from_object('config')
-
-auth = tweepy.OAuthHandler(app.config['ziEH3cxbutb6Yspn80pgBjRgD'],app.config('Wm3gCR4RA7Mx0cLl8WuwfkAZJxobBep0yVSuw492OQ1PEoakJE'))
-auth.set_access_token(app.config['703575776936005632-3smypE0iZTFxNXO6pEq1bM5rxwYBQix'],app.config['vpQrjsZZRsNRTzGYF0RhFKpBETQwP6qJeCo1cG8gBimfX'])
-tweepy_api=tweepy.API(auth)
 
 
+ckey= 'ziEH3cxbutb6Yspn80pgBjRgD'
+csecret= 'Wm3gCR4RA7Mx0cLl8WuwfkAZJxobBep0yVSuw492OQ1PEoakJE'
+atoken= '703575776936005632-3smypE0iZTFxNXO6pEq1bM5rxwYBQix'
+asecret= 'vpQrjsZZRsNRTzGYF0RhFKpBETQwP6qJeCo1cG8gBimfX'
 
-@app.route('/')
 class listener(StreamListener):
+
     def on_data(self,data):
-       
-        return data 
+        print (data)
+        return True 
 
     def on_error(self,status):
-        return status
+        print (status)
 
 
 
-if __name__=='__main__':
-    app.run(debug=True)
+auth =OAuthHandler(ckey,csecret)
+auth.set_access_token(atoken,asecret)
+twitterStream = Stream (auth,listener())
+twitterStream.filter(track=["WorldCup"])
+
+
+
 
 
