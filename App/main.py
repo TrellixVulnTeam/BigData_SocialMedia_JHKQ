@@ -19,15 +19,14 @@ class listener(StreamListener):
         try:
             with open(data_store,'a') as _file:
                 _file.write(data)
-                return True
+            return True
         except BaseException as e:
-            print ("Error Streaming Data: %s" &str(e))
-        return True 
+                 print ("Error Streaming Data: %s" &str(e))
+                 return True 
 
     def on_error(self,status):
-            print (status)
-        return True
-
+                print (status)
+                return True
 
 auth =OAuthHandler(ckey,csecret)
 auth.set_access_token(atoken,asecret)
