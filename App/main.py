@@ -3,6 +3,8 @@ from tweepy import Stream
 from tweepy import OAuthHandler
 from tweepy.streaming import StreamListener
 import tweepy
+import os.path 
+
 
 
 
@@ -11,7 +13,7 @@ csecret= 'Wm3gCR4RA7Mx0cLl8WuwfkAZJxobBep0yVSuw492OQ1PEoakJE'
 atoken= '703575776936005632-3smypE0iZTFxNXO6pEq1bM5rxwYBQix'
 asecret= 'vpQrjsZZRsNRTzGYF0RhFKpBETQwP6qJeCo1cG8gBimfX'
 KeyWords=['#worldcup ','#fifaworldcup','#wc2018','#2018worldcup','#russia2018']
-data_store='data.json'
+data_store='C:/Users/tammy/Documents/python/data.json'
 
 class listener(StreamListener):
 
