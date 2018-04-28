@@ -10,7 +10,7 @@ ckey= 'ziEH3cxbutb6Yspn80pgBjRgD'
 csecret= 'Wm3gCR4RA7Mx0cLl8WuwfkAZJxobBep0yVSuw492OQ1PEoakJE'
 atoken= '703575776936005632-3smypE0iZTFxNXO6pEq1bM5rxwYBQix'
 asecret= 'vpQrjsZZRsNRTzGYF0RhFKpBETQwP6qJeCo1cG8gBimfX'
-KeyWords=['WorldCup','FIFA2018','RussiaWC']
+KeyWords=['#worldcup ','#fifaworldcup','#wc2018','#2018worldcup','#russia2018']
 data_store='data.json'
 
 class listener(StreamListener):
