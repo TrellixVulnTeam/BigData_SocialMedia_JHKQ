@@ -3,6 +3,10 @@ from datetime import datetime
 
 client = MongoClient()
 
-dbClass = client ['tutorial']
+dbClass = client ['BigData']
+col = dbClass['Tweets']
 
-doc = ''
+doc = 'C:/Users/tammy/Documents/python/data.json'
+
+doc_id =  col.insert_one(doc).inserted_id
+
