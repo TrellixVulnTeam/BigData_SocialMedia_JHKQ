@@ -4,6 +4,8 @@ import re
 import json
 
 
+data_store='text.json'
+
 #emoticons extracted 
 emoticons_str = r"""
     (?:
@@ -36,8 +38,7 @@ def preprocess(s, lowercase=False):
     return tokens
  
 tweet=''
-with open ('text.json' , 'r') as f:
-   # line = f.readline()
+with open ('text.json', 'r') as f:
    for line in f:
     tweet=json.loads(line)
     tokens = preprocess(tweet['text'])
