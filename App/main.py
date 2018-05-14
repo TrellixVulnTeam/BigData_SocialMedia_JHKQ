@@ -14,7 +14,6 @@ atoken= '703575776936005632-3smypE0iZTFxNXO6pEq1bM5rxwYBQix'
 asecret= 'vpQrjsZZRsNRTzGYF0RhFKpBETQwP6qJeCo1cG8gBimfX'
 KeyWords=['#worldcup ','#fifaworldcup','#wc2018','#2018worldcup','#russia2018']
 data_store='C:/Users/tammy/Documents/python/data.json'
-
 class listener(StreamListener):
 
     def on_data(self,data):
