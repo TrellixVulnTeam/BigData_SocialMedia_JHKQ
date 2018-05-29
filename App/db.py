@@ -1,12 +1,20 @@
 from pymongo import MongoClient
 from datetime import datetime
+import json
+from bson import json_util
 
 client = MongoClient()
 
 dbClass = client ['BigData']
 col = dbClass['Tweets']
 
-doc = 'C:/Users/tammy/Documents/python/data.json'
+docs = 'text.json'
+with open (docs, 'r') as f:
+   for line in f:
+    tweet=json.loads(line)
+  
 
-doc_id =  col.insert_one(doc).inserted_id
+#col.insert_many(tweet)
+print(col.find_one())
+
 

@@ -2,11 +2,11 @@ import sys
 import os
 import re
 import json
-
-
-data_store='text.json'
+from json import JSONDecoder
+from functools import partial
 
 #emoticons extracted 
+tweet= []
 emoticons_str = r"""
     (?:
         [:=;] # Eyes
@@ -37,10 +37,41 @@ def preprocess(s, lowercase=False):
         tokens = [token if emoticon_re.search(token) else token.lower() for token in tokens]
     return tokens
  
-tweet=''
-with open ('text.json', 'r') as f:
-   for line in f:
-    tweet=json.loads(line)
-    tokens = preprocess(tweet['text'])
-print (tokens)
+docs = 'text.json'
+count = 0
+data = []
+
+#buffer 
+def json_parse (fileobj, decoder=JSONDecoder(), buffersize=2048):
+    buffer = ''
+    for chunk in iter(partial(fileobj.read, buffersize), ''):
+        buffer += chunk
+        while buffer:
+            try:
+                result, index = decoder.raw_decode(buffer)
+                yield result
+                buffer = buffer[index:]
+            except ValueError:
+                #not enough data to decode, read more
+                break
+
+
+#splitting function
+def ReadFile():
+    with open (docs, 'r') as f:
+        for data in json_parse(f):
+             tweet = data
+             return tweet
+
+
+BigData = []
+def WriteFile(): 
+    with open ('newFile.json', 'a') as f :
+         words = ReadFile()
+         #json.dump(words,f)
+   
+
+
+print (ReadFile())
+  
 
