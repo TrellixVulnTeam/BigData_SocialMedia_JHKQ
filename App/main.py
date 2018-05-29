@@ -7,7 +7,11 @@ import os.path
 
 
 
+<<<<<<< HEAD
 
+=======
+dictionary = {}
+>>>>>>> Data_preprocessing
 ckey= 'ziEH3cxbutb6Yspn80pgBjRgD'
 csecret= 'Wm3gCR4RA7Mx0cLl8WuwfkAZJxobBep0yVSuw492OQ1PEoakJE'
 atoken= '703575776936005632-3smypE0iZTFxNXO6pEq1bM5rxwYBQix'
@@ -18,8 +22,13 @@ class listener(StreamListener):
 
     def on_data(self,data):
         try:
+<<<<<<< HEAD
             with open(data_store,'a') as _file:
                 _file.write(data)
+=======
+            with open(data_store,'a', encoding='utf8') as _file:
+               _file.write(data)
+>>>>>>> Data_preprocessing
             return True
         except BaseException as e:
                  print ("Error Streaming Data: %s" &str(e))
