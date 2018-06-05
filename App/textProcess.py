@@ -4,6 +4,8 @@ import re
 import json
 from json import JSONDecoder
 from functools import partial
+from collections import Counter
+from nltk.tokenize import word_tokenize
 
 #emoticons extracted 
 tweet= []
@@ -37,7 +39,7 @@ def preprocess(s, lowercase=False):
         tokens = [token if emoticon_re.search(token) else token.lower() for token in tokens]
     return tokens
  
-docs = 'text.json'
+docs = 'C:/Users/tammy/Documents/python/text.json'
 count = 0
 data = []
 
@@ -56,22 +58,24 @@ def json_parse (fileobj, decoder=JSONDecoder(), buffersize=2048):
                 break
 
 
+diction = [] 
 #splitting function
-def ReadFile():
+def ConvertToDictionary():
     with open (docs, 'r') as f:
-        for data in json_parse(f):
-             tweet = data
-             return tweet
+        
+        for line in f:
+            diction = json.loads(line)
+          
+        for i in range (len(diction)):
+            tweet.append(diction[i]['text'])
+    return tweet
 
+def Process():
+    so = ReadFile()
+    count_all = Counter()
+    terms =  [term for term in preprocess(str(so))]
+    count_all.update(terms)
+    return  count_all.most_common(5)
+        
 
-BigData = []
-def WriteFile(): 
-    with open ('newFile.json', 'a') as f :
-         words = ReadFile()
-         #json.dump(words,f)
-   
-
-
-print (ReadFile())
-  
-
+print (Process())
