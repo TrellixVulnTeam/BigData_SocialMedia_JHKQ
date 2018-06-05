@@ -70,12 +70,12 @@ def ConvertToDictionary():
             tweet.append(diction[i]['text'])
     return tweet
 
-def Process():
-    so = ReadFile()
+def TermOccurence():
+    _data = ConvertToDictionary()
     count_all = Counter()
-    terms =  [term for term in preprocess(str(so))]
+    terms =  [term for term in preprocess(str(_data))]
     count_all.update(terms)
     return  count_all.most_common(5)
         
 
-print (Process())
+print (TermOccurence())
