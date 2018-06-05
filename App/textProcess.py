@@ -59,6 +59,9 @@ def json_parse (fileobj, decoder=JSONDecoder(), buffersize=2048):
 
 
 diction = [] 
+
+def MergeJSONFile():
+    
 #splitting function
 def ConvertToDictionary():
     with open (docs, 'r') as f:
