@@ -6,6 +6,7 @@ from json import JSONDecoder
 from functools import partial
 from collections import Counter
 from nltk.tokenize import word_tokenize
+from bson import json_util
 
 #emoticons extracted 
 tweet= []
@@ -59,19 +60,25 @@ def json_parse (fileobj, decoder=JSONDecoder(), buffersize=2048):
 
 
 diction = [] 
+trial = [] 
 
 def MergeJSONFile():
+   file_path = 'C:/Users/tammy/Documents/python/newFile.json' 
+   contents = open(file_path, "r").read()
+   c = contents.replace(" ", "") 
+   data = [json.loads(str(item)) for item in c.strip().split('\n')]
+   print (len(data))
     
 #splitting function
 def ConvertToDictionary():
-    with open (docs, 'r') as f:
+   with open (docs, 'r') as f:
         
         for line in f:
             diction = json.loads(line)
           
         for i in range (len(diction)):
             tweet.append(diction[i]['text'])
-    return tweet
+            return tweet
 
 def TermOccurence():
     _data = ConvertToDictionary()
@@ -81,4 +88,6 @@ def TermOccurence():
     return  count_all.most_common(5)
         
 
-print (TermOccurence())
+#print (MergeJSONFile())
+(MergeJSONFile())
+#print (TermOccurence())
