@@ -6,7 +6,7 @@ from json import JSONDecoder
 from functools import partial
 from collections import Counter
 from nltk.tokenize import word_tokenize
-from bson import json_util
+import ijson
 
 #emoticons extracted 
 tweet= []
@@ -40,7 +40,8 @@ def preprocess(s, lowercase=False):
         tokens = [token if emoticon_re.search(token) else token.lower() for token in tokens]
     return tokens
  
-docs = 'C:/Users/tammy/Documents/python/text.json'
+docs = 'C:/Users/tammy/Documents/python/data2.json'
+file_path = 'C:/Users/tammy/Documents/python/newFile.json' 
 count = 0
 data = []
 
@@ -59,27 +60,44 @@ def json_parse (fileobj, decoder=JSONDecoder(), buffersize=2048):
                 break
 
 
-diction = [] 
+
 trial = [] 
 
 def MergeJSONFile():
-   file_path = 'C:/Users/tammy/Documents/python/newFile.json' 
-   contents = open(file_path, "r").read()
-   c = contents.replace(" ", "") 
-   data = [json.loads(str(item)) for item in c.strip().split('\n')]
-   print (len(data))
+   
+   #contents = open(file_path, "r").read()
+   
+   #data = [json.loads(str(item)) for item in contents.strip().split('\n')]
+  #with open(file_path, mode='w') as f:
+   #data = [json.loads(str(item)) for item in  contents.strip('')]  
+  
+  home = 'C:/Users/tammy/Documents/python/WorldCup.json'
+  out = 'C:/Users/tammy/Documents/python/WC.json'
+  with open (home) as infile, open (out, 'w') as outfile:
+        for line in infile:
+          if not line.strip():continue
+          wow = line.replace('\n',',').replace('\r',',')
+          outfile.write((wow))
+        
     
 #splitting function
+diction = [] 
 def ConvertToDictionary():
    with open (docs, 'r') as f:
-        
         for line in f:
             diction = json.loads(line)
-          
         for i in range (len(diction)):
             tweet.append(diction[i]['text'])
-            return tweet
+            return len(diction)
 
+def test():
+    fname = 'C:/Users/tammy/Documents/python/data2.json'
+
+    with open(fname, 'r') as f:
+       for i in ijson.items(f, ''): 
+           return i
+
+   
 def TermOccurence():
     _data = ConvertToDictionary()
     count_all = Counter()
@@ -88,6 +106,7 @@ def TermOccurence():
     return  count_all.most_common(5)
         
 
-#print (MergeJSONFile())
-(MergeJSONFile())
-#print (TermOccurence())
+#print (test())
+print (MergeJSONFile())
+#(MergeJSONFile())
+#print (ConvertToDictionary())
