@@ -5,7 +5,7 @@ import json
 from json import JSONDecoder
 from functools import partial
 from collections import Counter
-from nltk.tokenize import word_tokenize
+
 
 #emoticons extracted 
 tweet= []
@@ -61,6 +61,7 @@ def json_parse (fileobj, decoder=JSONDecoder(), buffersize=2048):
 diction = [] 
 
 def MergeJSONFile():
+    return 0
     
 #splitting function
 def ConvertToDictionary():
