@@ -1,4 +1,4 @@
-from flask import Flask,json,request
+import json
 from tweepy import Stream 
 from tweepy import OAuthHandler
 from tweepy.streaming import StreamListener
@@ -12,7 +12,7 @@ csecret= 'Wm3gCR4RA7Mx0cLl8WuwfkAZJxobBep0yVSuw492OQ1PEoakJE'
 atoken= '703575776936005632-3smypE0iZTFxNXO6pEq1bM5rxwYBQix'
 asecret= 'vpQrjsZZRsNRTzGYF0RhFKpBETQwP6qJeCo1cG8gBimfX'
 KeyWords=['#worldcup ','#fifaworldcup','#wc2018','#2018worldcup','#russia2018']
-data_store='C:/Users/tammy/Documents/python/data.json'
+data_store='/home/hduser/WorldCup3.json'
 class listener(StreamListener):
 
     def on_data(self,data):
