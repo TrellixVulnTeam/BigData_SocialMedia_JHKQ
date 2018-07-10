@@ -2,10 +2,15 @@ import sys
 import os
 import re
 import json
-from json import JSONDecoder
 from functools import partial
 from collections import Counter
+<<<<<<< HEAD
 
+=======
+from nltk.tokenize import word_tokenize
+import pandas as pd 
+import matplotlib.pyplot as plt 
+>>>>>>> Data_preprocessing
 
 #emoticons extracted 
 tweet= []
@@ -29,6 +34,7 @@ regex_str  = [
 
 tokens_re = re.compile(r'('+'|'.join(regex_str)+')', re.VERBOSE | re.IGNORECASE)
 emoticon_re = re.compile(r'^'+emoticons_str+'$', re.VERBOSE | re.IGNORECASE)
+docs = 'C:/Users/tammy/Documents/python/tweets.json'
 
 def tokenize(s):
     return tokens_re.findall(s)
@@ -38,48 +44,42 @@ def preprocess(s, lowercase=False):
     if lowercase:
         tokens = [token if emoticon_re.search(token) else token.lower() for token in tokens]
     return tokens
- 
-docs = 'C:/Users/tammy/Documents/python/text.json'
-count = 0
-data = []
 
-#buffer 
-def json_parse (fileobj, decoder=JSONDecoder(), buffersize=2048):
-    buffer = ''
-    for chunk in iter(partial(fileobj.read, buffersize), ''):
-        buffer += chunk
-        while buffer:
-            try:
-                result, index = decoder.raw_decode(buffer)
-                yield result
-                buffer = buffer[index:]
-            except ValueError:
-                #not enough data to decode, read more
-                break
+def getHash(tweet):
+    entities = tweet.get('entities', {})
+    hashtags = entities.get('hashtags', [])
+    return [tag['text'].lower() for tag in hashtags]
 
 
-diction = [] 
+def read():
+    fname = 'C:/Users/tammy/Documents/python/final2.json'
+    tweets = []
+    count = Counter()
 
+<<<<<<< HEAD
 def MergeJSONFile():
     return 0
     
 #splitting function
 def ConvertToDictionary():
     with open (docs, 'r') as f:
+=======
+    with  open (fname, 'r') as f:
+>>>>>>> Data_preprocessing
         
         for line in f:
-            diction = json.loads(line)
+            try:
           
-        for i in range (len(diction)):
-            tweet.append(diction[i]['text'])
-    return tweet
+                tweet= json.loads(line)
+                tweets.append(tweet)
+            #terms_all = [term for term in preprocess(tweet['text'])]
+            #count.update(terms_all)
+            except:
+             continue
+           
+        tweets = pd.DataFrame() 
+        tweets["text"] = map(lambda tweet:tweet["text", tweets])
+        tweets["lang"] = map(lambda tweet:tweet["lang", tweets])
+          
+read()
 
-def TermOccurence():
-    _data = ConvertToDictionary()
-    count_all = Counter()
-    terms =  [term for term in preprocess(str(_data))]
-    count_all.update(terms)
-    return  count_all.most_common(5)
-        
-
-print (TermOccurence())
