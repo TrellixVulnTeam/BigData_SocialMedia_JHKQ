@@ -1,13 +1,10 @@
-from flask import Flask,json,request
+import json
 from tweepy import Stream 
 from tweepy import OAuthHandler
 from tweepy.streaming import StreamListener
 import tweepy
 import os.path 
 
-
-
-dictionary = {}
 ckey= 'ziEH3cxbutb6Yspn80pgBjRgD'
 csecret= 'Wm3gCR4RA7Mx0cLl8WuwfkAZJxobBep0yVSuw492OQ1PEoakJE'
 atoken= '703575776936005632-3smypE0iZTFxNXO6pEq1bM5rxwYBQix'

@@ -68,11 +68,5 @@ def read():
         tweets["text"] = map(lambda tweet:tweet["text", tweets])
         tweets["lang"] = map(lambda tweet:tweet["lang", tweets])
           
-        tweets_by_lang=tweets["lang"].value_counts()
-        fig.ax=plt.subplots()
-        ax.tick_params(axis='x',lablesize=15)
-        ax.set_xlabels ('Languages',fontsize=15)
-        ax.set_ylabels ('Number of Tweets',fontsize=15)
-        ax.set_title("Top 5 langs", fontsite=15, fontweight='bold')
 read()
 

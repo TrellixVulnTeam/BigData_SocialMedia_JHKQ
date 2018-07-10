@@ -1,13 +1,14 @@
 import re 
 import sys
 import json
+from Filter import Filter
+
 
 class Processor():
     
     def __init__(self, FileName):  
             self.name= FileName
 
-    
 
     def LoadJsonFile (self):
         tweets = [] 
@@ -17,20 +18,32 @@ class Processor():
                 tweet = json.loads(obj)
                 tweets.append(tweet)
             except Exception as e:
-                print ("type error: "+ str(e))
+                continue
                 
         return tweets
 
     def DoProcessing(self):
         return 0
 
-    def WriteToDB(self, newOut):
-        return 0
-    
+    def WriteToDB(self):
+        tweet = self.LoadJsonFile()
+        myfile = "C:/Users/tammy/Documents/python/Output.txt"
+        Filtering = Filter(self.name)
 
+        with open (myfile, 'w') as f:
+            for t in tweet:
+                data = Filtering.strip_links(t['text'])
+                try:
+                   f.write(data)
+                except Exception as ex:
+                   print ("Error :" + str(ex))
+
+        print("Write success")
+     
 if __name__ =="__main__":
      x = Processor(sys.argv[1])
      x.LoadJsonFile()
-     print(x.LoadJsonFile())
+     x.WriteToDB()
+
 
     
