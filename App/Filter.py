@@ -1,5 +1,7 @@
 
 import nltk
+import re 
+import string 
 
 class Filter():
 
@@ -24,5 +26,8 @@ class Filter():
          r'(?:[\w_]+)', # other words
          r'(?:\S)' # anything else
         ]
+
+    def strip_links(self, text):
+        return  ' '.join(re.sub("(@[A-Za-z0-9]+)|([^0-9A-Za-z \t])|(\w+:\/\/\S+)"," ",text).split())
 
     
