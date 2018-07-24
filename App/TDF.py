@@ -7,8 +7,9 @@ import sys
 import matplotlib.pyplot as plt 
 
 class TDF():
-    def __init__(self, FileName, ):
+    def __init__(self, FileName, NewFile):
          self.name = FileName
+         self.newfile = NewFile
        
 
     def tokens (self, sentenceData):
@@ -35,47 +36,35 @@ class TDF():
         words = line.split()
         for r in words:
             if not r in stop_words:
-               appendfile = open("C:/Users/tammy/Documents/python/Ready.txt", 'a')
+               appendfile = open(self.newfile, 'a')
                appendfile.write(" "+r)
                appendfile.close()
 
     print ("success")
 
     def doCounter(self):
-        myfile =open("C:/Users/tammy/Documents/python/clean.txt", "r", encoding="utf-8-sig")
-        wordcount = Counter(myfile.read().split()) 
-        #for item in wordcount.items():
-            #print ("{}\t{}".format(*item))
-        dic =  wordcount.most_common(20)
+        myfile =open(self.newfile, "r", encoding="utf-8-sig")
+        wordcount = Counter(myfile.read().split())
+        dic =  wordcount.most_common(7)
         return dic 
 
     def Visual(self):
         plt.subplot(111, facecolor='w')
-        alignment = {'horizontalalignment': 'center', 'verticalalignment': 'baseline'}
-
-              
-        families = []
-        myf =  open ("C:/Users/tammy/Documents/python/wow.txt")
-        line = myf.read()
-        words = line.split()
-        for w in words:
-            families.append(w)
-
-        wordcount = Counter(families)
-        print(wordcount.most_common(6))
+        alignment = {'horizontalalignment': 'center', 'verticalalignment': 'baseline'}        
         t = plt.text(0.0, 0.9, 'Hot Topics World Cup', size='large', **alignment)
-
         yp = [0.8, 0.7, 0.6, 0.5, 0.4, 0.3, 0.2]
-
-        for k, family in enumerate(wordcount.most_common(6)):
+        myDict = self.doCounter()
+        for k, family in enumerate(myDict):
             t = plt.text(0.0, yp[k], family, family=family, **alignment)
-            x = -0.4
+        x = -0.4
 
         plt.axis([-1, 1, 0, 1])
         plt.show()
 
 if __name__ == "__main__":
     original = sys.argv[1]
-    myTdf = TDF(original)
+    newfile = sys.argv[2]
+    myTdf = TDF(original, newfile)
     #myTdf.stopWordsRemove()
     print (myTdf.doCounter())
+    myTdf.Visual()
