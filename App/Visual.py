@@ -8,7 +8,7 @@ alignment = {'horizontalalignment': 'center', 'verticalalignment': 'baseline'}
 # Show family options
 
 families = []
-myf =  open ("C:/Users/tammy/Documents/python/wow.txt")
+myf =  open ("C:/Users/tammy/Documents/python/final.txt")
 line = myf.read()
 words = line.split()
 for w in words:
