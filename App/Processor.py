@@ -16,16 +16,13 @@ class Processor():
         tweet_file = open(self.name, "r")
         for obj in tweet_file:
             try:
-                tweet = [json.loads(obj).get('text')]
+                tweet = [json.loads(obj)]
                 tweets.append(tweet)
-               # print (tweets)
             except:
-                pass
-                
+                pass           
         return tweets
 
-    def DoProcessing(self):
-        return 0
+    
 
     def WriteToDB(self):
         tweet = self.LoadJsonFile()
@@ -35,23 +32,22 @@ class Processor():
         with open (myfile, 'w') as f:
             for t in tweet:
                 data = Filtering.strip_links(str(t))
-                
                 try:
                    f.write(data)
-                   print(data)
-                  
-                  
+                   #print(data)
                 except:
                   pass 
                   f.flush()
                   f.close()
                
-
         print("Write success")
+
+    def DoProcessing(self):
+        return 0
      
 if __name__ =="__main__":
      x = Processor(sys.argv[1], sys.argv[2])
-     x.LoadJsonFile()
+     (x.LoadJsonFile())
      x.WriteToDB()
 
 

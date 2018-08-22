@@ -119,8 +119,8 @@ def main():
     parser.add_option("-c", dest="corpus", help="using range of Brown corpus' files(start:end)")
     parser.add_option("--alpha", dest="alpha", type="float", help="parameter alpha", default=0.5)
     parser.add_option("--beta", dest="beta", type="float", help="parameter beta", default=0.5)
-    parser.add_option("-k", dest="K", type="int", help="number of topics", default=5)
-    parser.add_option("-i", dest="iteration", type="int", help="iteration count", default=10)
+    parser.add_option("-k", dest="K", type="int", help="number of topics", default=2)
+    parser.add_option("-i", dest="iteration", type="int", help="iteration count", default=5)
     parser.add_option("-s", dest="smartinit", action="store_true", help="smart initialize of parameters", default=False)
     parser.add_option("--stopwords", dest="stopwords", help="exclude stop words", action="store_true", default=False)
     parser.add_option("--seed", dest="seed", type="int", help="random seed")
@@ -142,7 +142,7 @@ def main():
 
     lda = LDA(options.K, options.alpha, options.beta, docs, voca.size(), options.smartinit)
     print ("corpus=%d, words=%d, K=%d, a=%f, b=%f" % (len(corpus), len(voca.vocas), options.K, options.alpha, options.beta))
-
+   
     #import cProfile
     #cProfile.runctx('lda_learning(lda, options.iteration, voca)', globals(), locals(), 'lda.profile')
     lda_learning(lda, options.iteration, voca)

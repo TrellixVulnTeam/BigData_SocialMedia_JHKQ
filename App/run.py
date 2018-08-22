@@ -45,13 +45,13 @@ class LDA:
         corpus = [dictionary.doc2bow(text) for text in texts]
 
 # generate LDA model
-        ldamodel = gensim.models.ldamodel.LdaModel(corpus, num_topics=3, id2word = dictionary, passes=4)
+        ldamodel = gensim.models.ldamodel.LdaModel(corpus, num_topics=2, id2word = dictionary, passes=5)
 
-        print(ldamodel.print_topics(num_topics=5))
+       # print(ldamodel.print_topics(num_topics=5))
 
 #pyLDAvis.enable_notebook()
         visualisation = pyLDAvis.gensim.prepare(ldamodel, corpus, dictionary)
-        pyLDAvis.save_html(visualisation, 'C:/Users/tammy/Documents/python/Low_Visualization.html')
+        pyLDAvis.save_html(visualisation, 'C:/Users/tammy/Documents/python/low_id.html')
         print ("Visual Created")
 
 

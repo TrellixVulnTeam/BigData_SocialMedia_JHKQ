@@ -10,25 +10,26 @@ class TDF():
     def __init__(self, FileName, NewFile):
          self.name = FileName
          self.newfile = NewFile
-       
-
-    def tokens (self, sentenceData):
-        tokenizer = Tokenizer(inputCol="sentence", outputCol="words")
-        wordsData = tokenizer.transform(sentenceData)
-
-    def hashing(self, wordsData):
-
-        hashingTF = HashingTF(inputCol="words", outputCol="rawFeatures", numFeatures=20)
-        featurizedData = hashingTF.transform(wordsData)
-       # alternatively, CountVectorizer can also be used to get term frequency vectors
-
-        idf = IDF(inputCol="rawFeatures", outputCol="features")
-        idfModel = idf.fit(featurizedData)
-        rescaledData = idfModel.transform(featurizedData)
-
-        rescaledData.select("label", "features").show()
     
-
+    def computeTDF(self, myfile):
+        import math 
+        
+        idfDict ={}
+        N = len(myfile)
+        idfDict = dict.fromkeys(myfile[0].keys() , 0)
+        for doc in myfile:
+            for word, val in doc.items():
+                if val > 0:
+                    idfDict[word] += 1
+        for word, val in idfDict.items():
+            idfDict[word] = math.log10(N / float(val) )
+        return idfDict 
+    
+    def computeTDFIF(self,tfBow, idfs):
+        tfidf = {}
+        for word, val in tfidf.items():
+            tfidf[word] = val * idfs[word]
+        return tfidf
     def stopWordsRemove(self):
         myfile =open(self.name)
         stop_words = set(stopwords.words('english'))
@@ -65,6 +66,6 @@ if __name__ == "__main__":
     original = sys.argv[1]
     newfile = sys.argv[2]
     myTdf = TDF(original, newfile)
-    #myTdf.stopWordsRemove()
-    print (myTdf.doCounter())
-    myTdf.Visual()
+    myTdf.stopWordsRemove()
+    #print (myTdf.doCounter())
+    #myTdf.Visual()
