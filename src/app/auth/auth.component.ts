@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { DbServicesService } from '../db-services.service';
+import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+
+
+
 
 @Component({
   selector: 'app-auth',
@@ -8,7 +12,7 @@ import { DbServicesService } from '../db-services.service';
 })
 export class AuthComponent implements OnInit {
   myData: any;
-  constructor(private authService: DbServicesService) { }
+  constructor(private authService: DbServicesService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -20,7 +24,9 @@ export class AuthComponent implements OnInit {
   SendData(all: any) {
     this.authService.sendAuthDetails(all).subscribe(
       response => console.log(response),
-      err => console.log(err)
+      err => console.log(err),
     );
+
+    this.router.navigate(['/topics']);
   }
 }
