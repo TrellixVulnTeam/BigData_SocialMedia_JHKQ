@@ -20,6 +20,6 @@ export class DbServicesService {
   sendAuthDetails(data) {
     const packet = [{'Details': data}];
     const body = JSON.stringify(packet);
-    return this.http.post('', body, httpOptions);
+    return this.http.post('http://127.0.0.1:5000/json-example', body, httpOptions);
   }
 }
