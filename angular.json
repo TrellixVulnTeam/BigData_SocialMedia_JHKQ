@@ -50,6 +50,7 @@
               "src/assets/files/bower_components/bootstrap-multiselect/js/bootstrap-multiselect.js",
               "src/assets/files/bower_components/select2/js/select2.full.min.js",
               "src/assets/files/bower_components/modernizr/js/css-scrollbars.js",
+              "src/assets/files/assets/js/jquery.mCustomScrollbar.concat.min.js",
               "src/assets/files/assets/js/jquery.mCustomScrollbar.concat.min.js"
               
             ]
