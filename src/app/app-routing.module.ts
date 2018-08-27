@@ -8,7 +8,7 @@ import { TopicsComponent } from './topics/topics.component';
 const routes: Routes = [
   {path: 'index', component : AuthComponent},
   {path: 'dashboard', component : DashboardComponent},
-  {path: '', redirectTo: 'index', pathMatch: 'full'},
+  // {path: '', redirectTo: 'index', pathMatch: 'full'},
   {path: 'topics', component : TopicsComponent}
 ];
 

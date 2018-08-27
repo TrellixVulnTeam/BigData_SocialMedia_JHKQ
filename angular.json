@@ -25,7 +25,34 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/files/bower_components/jquery/js/jquery.min.js",
+              "src/assets/files/bower_components/jquery/js/jquery.min.js",
+              "src/assets/files/bower_components/jquery-ui/js/jquery-ui.min.js",
+              "src/assets/files/bower_components/popper/js/popper.min.js",
+              "src/assets/files/bower_components/bootstrap/js/bootstrap.min.js",
+              "src/assets/files/assets/pages/waves/js/waves.min.js",
+              "src/assets/files/bower_components/jquery-slimscroll/js/jquery.slimscroll.js",
+              "src/assets/files/bower_components/modernizr/js/modernizr.js",
+              "src/assets/files/bower_components/modernizr/js/css-scrollbars.js",
+              "src/assets/files/bower_components/i18next/js/i18next.min.js",
+              "src/assets/files/bower_components/i18next-xhr-backend/js/i18nextXHRBackend.min.js",
+              "src/assets/files/bower_components/i18next-browser-languagedetector/js/i18nextBrowserLanguageDetector.min.js",
+              "src/assets/files/bower_components/jquery-i18next/js/jquery-i18next.min.js",
+              "src/assets/files/assets/js/common-pages.js",
+              "src/assets/files/assets/js/script.js",
+              "src/assets/files/assets/js/jquery.mCustomScrollbar.concat.min.js",
+              "src/assets/files/assets/js/vertical/vertical-layout.min.js",
+              "src/assets/files/assets/js/pcoded.min.js",
+              "src/assets/files/assets/pages/advance-elements/select2-custom.js",
+              "src/assets/files/assets/js/jquery.quicksearch.js",
+              "src/assets/files/bower_components/multiselect/js/jquery.multi-select.js",
+              "src/assets/files/bower_components/bootstrap-multiselect/js/bootstrap-multiselect.js",
+              "src/assets/files/bower_components/select2/js/select2.full.min.js",
+              "src/assets/files/bower_components/modernizr/js/css-scrollbars.js",
+              "src/assets/files/assets/js/jquery.mCustomScrollbar.concat.min.js"
+              
+            ]
           },
           "configurations": {
             "production": {
@@ -74,7 +101,8 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": [],
+            "scripts": [
+            ],
             "assets": [
               "src/favicon.ico",
               "src/assets"
