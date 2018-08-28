@@ -12,4 +12,7 @@ export class TopicsComponent implements OnInit {
   ngOnInit() {
   }
 
+  getValueFromSelect(value) {
+    console.log(value);
+  }
 }

@@ -348,7 +348,7 @@
                                 </a>
                                 <ul class="pcoded-submenu">
                                     <li class="">
-                                        <a href="index.html" class="waves-effect waves-dark">
+                                        <a  routerLink="/Topics" class="waves-effect waves-dark">
                                             <span class="pcoded-mtext">Topics</span>
                                         </a>
                                     </li>
@@ -376,81 +376,12 @@
                                 </ul>
                             </li>
                             <li class="pcoded-hasmenu">
-                                <a href="javascript:void(0)" class="waves-effect waves-dark">
+                                <a routerLink="/topics" class="waves-effect waves-dark">
                                     <span class="pcoded-micon"><i class="feather icon-sidebar"></i></span>
                                     <span class="pcoded-mtext">Topics</span>
-                                    <span class="pcoded-badge label label-warning">NEW</span>
                                 </a>
                                 <ul class="pcoded-submenu">
-                                    <li class=" pcoded-hasmenu">
-                                        <a href="javascript:void(0)" class="waves-effect waves-dark">
-                                            <span class="pcoded-mtext">Vertical</span>
-                                        </a>
-                                        <ul class="pcoded-submenu">
-                                            <li class="">
-                                                <a href="menu-static.html" class="waves-effect waves-dark">
-                                                    <span class="pcoded-mtext">Static Layout</span>
-                                                </a>
-                                            </li>
-                                            <li class="">
-                                                <a href="menu-header-fixed.html" class="waves-effect waves-dark">
-                                                    <span class="pcoded-mtext">Header Fixed</span>
-                                                </a>
-                                            </li>
-                                            <li class="">
-                                                <a href="menu-compact.html" class="waves-effect waves-dark">
-                                                    <span class="pcoded-mtext">Compact</span>
-                                                </a>
-                                            </li>
-                                            <li class="">
-                                                <a href="menu-sidebar.html" class="waves-effect waves-dark">
-                                                    <span class="pcoded-mtext">Sidebar Fixed</span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class=" pcoded-hasmenu">
-                                        <a href="javascript:void(0)" class="waves-effect waves-dark">
-                                            <span class="pcoded-mtext">Horizontal</span>
-                                        </a>
-                                        <ul class="pcoded-submenu">
-                                            <li class="">
-                                                <a href="menu-horizontal-static.html" target="_blank" class="waves-effect waves-dark">
-                                                    <span class="pcoded-mtext">Static Layout</span>
-                                                </a>
-                                            </li>
-                                            <li class="">
-                                                <a href="menu-horizontal-fixed.html" target="_blank" class="waves-effect waves-dark">
-                                                    <span class="pcoded-mtext">Fixed layout</span>
-                                                </a>
-                                            </li>
-                                            <li class="">
-                                                <a href="menu-horizontal-icon.html" target="_blank" class="waves-effect waves-dark">
-                                                    <span class="pcoded-mtext">Static With Icon</span>
-                                                </a>
-                                            </li>
-                                            <li class="">
-                                                <a href="menu-horizontal-icon-fixed.html" target="_blank" class="waves-effect waves-dark">
-                                                    <span class="pcoded-mtext">Fixed With Icon</span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="">
-                                        <a href="menu-bottom.html" class="waves-effect waves-dark">
-                                            <span class="pcoded-mtext">Bottom Menu</span>
-                                        </a>
-                                    </li>
-                                    <li class="">
-                                        <a href="box-layout.html" target="_blank" class="waves-effect waves-dark">
-                                            <span class="pcoded-mtext">Box Layout</span>
-                                        </a>
-                                    </li>
-                                    <li class="">
-                                        <a href="menu-rtl.html" target="_blank" class="waves-effect waves-dark">
-                                            <span class="pcoded-mtext">RTL</span>
-                                        </a>
-                                    </li>
+                                   
                                 </ul>
                             </li>
                             <li class="">
@@ -531,6 +462,7 @@
                                         <div class="row">
                                             <div class="col-sm-12">
                                                 <!-- Default select start -->
+                                                
                                                 <div class="card">
                                                     <div class="card-header">
                                                         <h5>Perform Selection Below</h5>
@@ -540,54 +472,55 @@
                                                         <div class="row">
                                                             <div class="col-sm-12 col-xl-3 m-b-30">
                                                                 <h4 class="sub-title">Choose File To Process</h4>
-                                                                <select name="select" class="form-control form-control-warning">
-                                                                    <option value="opt1">Files</option>
-                                                                    <option value="opt2">Before World Cup</option>
-                                                                    <option value="opt3">During World Cup</option>
-                                                                    <option value="opt4">Final World Cup</option>
-                                                                    <option value="opt5">Sample File</option>
+                                                                <select #file class="form-control form-control-warning">
+                                                                    <option value="before.json">Files</option>
+                                                                    <option value="before.json">Before World Cup</option>
+                                                                    <option value="during.json">During World Cup</option>
+                                                                    <option value="final.json">Final World Cup</option>
+                                                                    <option value="sample.json">Sample File</option>
             
                                                                 </select>
                                                             </div>
                                                             <div class="col-sm-12 col-xl-3 m-b-30">
                                                                 <h4 class="sub-title">Number of Topics</h4>
-                                                                <select name="select" class="form-control form-control-primary">
-                                                                    <option value="opt1">Topics</option>
-                                                                    <option value="opt2">1 Topic</option>
-                                                                    <option value="opt3">2 Topics</option>
-                                                                    <option value="opt4">3 Topics</option>
-                                                                    <option value="opt5">4 Topics</option>
+                                                                <select #Topics class="form-control form-control-primary">
+                                                                    <option value="1">Topics</option>
+                                                                    <option value="1">1 Topic</option>
+                                                                    <option value="2">2 Topics</option>
+                                                                    <option value="3">3 Topics</option>
+                                                                    <option value="4">4 Topics</option>
                                     
                                                                 </select>
                                                             </div>
                                                             <div class="col-sm-12 col-xl-3 m-b-30">
                                                                 <h4 class="sub-title">Number Of Iterations</h4>
-                                                                <select name="select" class="form-control form-control-success">
-                                                                    <option value="opt1">Iterations</option>
-                                                                    <option value="opt2">N = 1</option>
-                                                                    <option value="opt3">N = 2</option>
-                                                                    <option value="opt4">N = 3</option>
-                                                                    <option value="opt5">N = 4</option>
+                                                                <select #Iterations class="form-control form-control-success">
+                                                                    <option value="1">Iterations</option>
+                                                                    <option value="1">N = 1</option>
+                                                                    <option value="2">N = 2</option>
+                                                                    <option value="3">N = 3</option>
+                                                                    <option value="4">N = 4</option>
                         
                                                                 </select>
                                                             </div>
                                                             <div class="col-sm-12 col-xl-3 m-b-30">
                                                                 <h4 class="sub-title">Dirichlet Parameter</h4>
-                                                                <select name="select" class="form-control form-control-info">
-                                                                    <option value="opt1">Distribution</option>
-                                                                    <option value="opt2">0.50</option>
-                                                                    <option value="opt3">0.25</option>
+                                                                <select #Distribution class="form-control form-control-info">
+                                                                    <option value="opt1" >Distribution</option>
+                                                                    <option value="alpha" >0.50</option>
+                                                                    <option value="beta" >0.25</option>
                         
                                                                 </select>
                                                             </div>
 
-                                                            <button class="btn btn-primary waves-effect waves-light">Send Data</button>
+                                                            <button (click) = "SendTopics(Distribution.value, Iterations.value, Topics.value, file.value)" class="btn btn-primary waves-effect waves-light">Send Data</button>
                                                         </div>
                                                         <div class="row">
                                                            
                                                         </div>
                                                     </div>
                                                 </div>
+                                               
                                                 <!-- Default select end -->
                                                 <!-- Select2 start -->
                                                 <div class="card">
@@ -710,5 +643,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-TDZ2KVV');</script>
 <!-- End Google Tag Manager -->
 </body>
+
+<router-outlet></router-outlet>
+
 
 

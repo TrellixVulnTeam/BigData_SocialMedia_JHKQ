@@ -23,7 +23,9 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "src/assets/fonts/css/fontawesome.min.css",
+              "src/assets/fonts/font.css"
             ],
             "scripts": [
               "src/assets/files/bower_components/jquery/js/jquery.min.js",
@@ -51,7 +53,11 @@
               "src/assets/files/bower_components/select2/js/select2.full.min.js",
               "src/assets/files/bower_components/modernizr/js/css-scrollbars.js",
               "src/assets/files/assets/js/jquery.mCustomScrollbar.concat.min.js",
-              "src/assets/files/assets/js/jquery.mCustomScrollbar.concat.min.js"
+              "src/assets/files/assets/js/jquery.mCustomScrollbar.concat.min.js",
+              "src/assets/files/bower_components/d3/js/d3.js",
+              "src/assets/files/bower_components/nvd3/js/nv.d3.js",
+              "src/assets/files/assets/pages/chart/nv-chart/js/stream_layers.js",
+              "src/assets/files/assets/pages/chart/nvd3/chart-nvd3.js"
               
             ]
           },
