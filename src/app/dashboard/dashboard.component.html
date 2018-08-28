@@ -320,7 +320,7 @@
                             <div class="main-menu-header">
                                 <img class="img-menu-user img-radius" src="src/assets/files/assets/images/avatar-4.jpg" alt="User-Profile-Image">
                                 <div class="user-details">
-                                    <p id="more-details">John Doe<i class="feather icon-chevron-down m-l-10"></i></p>
+                                    <p id="more-details">User<i class="feather icon-chevron-down m-l-10"></i></p>
                                 </div>
                             </div>
                             <div class="main-menu-content">
@@ -389,7 +389,7 @@
 									<span class="pcoded-micon">
 										<i class="feather icon-menu"></i>
 									</span>
-                                    <span class="pcoded-mtext">Word Frequency</span>
+                                    <span class="pcoded-mtext">Sentiment Anaylysis</span>
                                 </a>
                             </li>
                             <li class="pcoded-hasmenu">
@@ -397,8 +397,8 @@
 									<span class="pcoded-micon">
 										<i class="feather icon-layers"></i>
 									</span>
-                                    <span class="pcoded-mtext">Sentiment Anaylyses</span>
-                                    <span class="pcoded-badge label label-danger">100+</span>
+                                    <span class="pcoded-mtext">Geographic Tweets</span>
+                                    
                                 </a>
                                 <ul class="pcoded-submenu">
                                     <li class="">
@@ -445,7 +445,7 @@
                                             </a>
                                         </li>
                                         <li class="breadcrumb-item">
-                                            <a href="#!">Select File </a>
+                                            <a href="#!">Input Data </a>
                                         </li>
                                     </ul>
                                 </div>
@@ -506,10 +506,21 @@
                                                             <div class="col-sm-12 col-xl-3 m-b-30">
                                                                 <h4 class="sub-title">Dirichlet Parameter</h4>
                                                                 <select #Distribution class="form-control form-control-info">
-                                                                    <option value="opt1" >Distribution</option>
-                                                                    <option value="alpha" >0.50</option>
-                                                                    <option value="beta" >0.25</option>
-                        
+                                                                    <option value="0.5" >Alpha</option>
+                                                                    <option value="0.1" >0.1</option>
+                                                                    <option value="0.2" >0.2</option>
+                                                                    <option value="0.3" >0.3</option>
+                                                                    <option value="0.4" >0.4</option>
+                                                                    <option value="0.5" >0.5</option>
+
+                                                                </select>
+                                                                <select #Distribution class="form-control form-control-info">
+                                                                    <option value="opt1" >Beta</option>
+                                                                    <option value="0.1" >0.1</option>
+                                                                    <option value="0.2" >0.2</option>
+                                                                    <option value="0.3" >0.3</option>
+                                                                    <option value="0.4" >0.4</option>
+                                                                    <option value="0.5" >0.5</option>
                                                                 </select>
                                                             </div>
 
@@ -521,23 +532,7 @@
                                                     </div>
                                                 </div>
                                                
-                                                <!-- Default select end -->
-                                                <!-- Select2 start -->
-                                                <div class="card">
-                                                    <div class="card-header">
-                                    
-                                                    </div>
-                                                    <div class="card-block">
-                                                        
-                                                        </div>
-                                                    </div>
-                                                    <!-- Select2 end -->
-                                                    <!-- Multi-select start -->
-                                                    <div class="card">
-                                                        <div class="card-block">
-                                                        </div>
-                                                    </div>
-                                                    <!-- Multi-select end -->
+                                        
                                                 </div>
                                             </div>
                                         </div>
