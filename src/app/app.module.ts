@@ -8,12 +8,16 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { TopicsComponent } from './topics/topics.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { SentimentComponent } from './sentiment/sentiment.component';
+import { GeotweetsComponent } from './geotweets/geotweets.component';
 @NgModule({
   declarations: [
     AppComponent,
     AuthComponent,
     DashboardComponent,
-    TopicsComponent
+    TopicsComponent,
+    SentimentComponent,
+    GeotweetsComponent
   ],
   imports: [
     BrowserModule,
