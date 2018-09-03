@@ -477,7 +477,7 @@
                                                                     <option value="before.json">Before World Cup</option>
                                                                     <option value="during.json">During World Cup</option>
                                                                     <option value="final.json">Final World Cup</option>
-                                                                    <option value="sample.json">Sample File</option>
+                                                                    <option value="toys.txt">Sample File</option>
             
                                                                 </select>
                                                             </div>
@@ -505,26 +505,37 @@
                                                             </div>
                                                             <div class="col-sm-12 col-xl-3 m-b-30">
                                                                 <h4 class="sub-title">Dirichlet Parameter</h4>
-                                                                <select #Distribution class="form-control form-control-info">
-                                                                    <option value="0.5" >Alpha</option>
+                                                                <select #Alpha class="form-control form-control-info">
+                                                                    <option value="0.0" >Alpha</option>
                                                                     <option value="0.1" >0.1</option>
                                                                     <option value="0.2" >0.2</option>
                                                                     <option value="0.3" >0.3</option>
                                                                     <option value="0.4" >0.4</option>
                                                                     <option value="0.5" >0.5</option>
+                                                                
+                                                                    <option value="0.6" >0.6</option>
+                                                                    <option value="0.7" >0.7</option>
+                                                                    <option value="0.8" >0.8</option>
+                                                                    <option value="0.9" >0.9</option>
+                                                                    <option value="0.10" >0.10</option>
 
                                                                 </select>
-                                                                <select #Distribution class="form-control form-control-info">
-                                                                    <option value="opt1" >Beta</option>
+                                                                <select #Beta class="form-control form-control-info">
+                                                                    <option value="0.0" >Beta</option>
                                                                     <option value="0.1" >0.1</option>
                                                                     <option value="0.2" >0.2</option>
                                                                     <option value="0.3" >0.3</option>
                                                                     <option value="0.4" >0.4</option>
                                                                     <option value="0.5" >0.5</option>
+                                                                    <option value="0.6" >0.6</option>
+                                                                    <option value="0.7" >0.7</option>
+                                                                    <option value="0.8" >0.8</option>
+                                                                    <option value="0.9" >0.9</option>
+                                                                    <option value="0.10" >0.10</option>
                                                                 </select>
                                                             </div>
 
-                                                            <button (click) = "SendTopics(Distribution.value, Iterations.value, Topics.value, file.value)" class="btn btn-primary waves-effect waves-light">Send Data</button>
+                                                            <button (click) = "SendTopics(Alpha.value,Beta.value, Iterations.value, Topics.value, file.value)" class="btn btn-primary waves-effect waves-light">Send Data</button>
                                                         </div>
                                                         <div class="row">
                                                            

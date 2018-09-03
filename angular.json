@@ -57,7 +57,8 @@
               "src/assets/files/bower_components/d3/js/d3.js",
               "src/assets/files/bower_components/nvd3/js/nv.d3.js",
               "src/assets/files/assets/pages/chart/nv-chart/js/stream_layers.js",
-              "src/assets/files/assets/pages/chart/nvd3/chart-nvd3.js"
+              "src/assets/files/assets/pages/chart/nvd3/chart-nvd3.js",
+              "src/assets/files/assets/pages/chart/google/js/custom-google-chart.js"
               
             ]
           },

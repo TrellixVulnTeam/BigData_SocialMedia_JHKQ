@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DbServicesService } from '../db-services.service';
+
 
 @Component({
   selector: 'app-dashboard',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authService: DbServicesService) { }
    in: any;
    out: any;
   ngOnInit() {
@@ -17,11 +19,11 @@ export class DashboardComponent implements OnInit {
     return null;
   }
 
-  SendTopics(dirichlet, iterantion, topics, files) {
-    console.log('Dirichlet' + dirichlet);
-    console.log('Num Iter' + iterantion);
-    console.log('Num Topics' + topics);
-    console.log('File Name' + files);
+  SendTopics(alpha, beta, iterate, topics, files) {
+    this.authService.sendTopics(files, alpha, beta, topics, iterate).subscribe(
+      response => console.log(response),
+      err => console.log(err),
+    );
   }
 
 

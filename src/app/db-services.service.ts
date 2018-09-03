@@ -20,6 +20,14 @@ export class DbServicesService {
   sendAuthDetails(data) {
     const packet = [{'Details': data}];
     const body = JSON.stringify(packet);
-    return this.http.post('http://127.0.0.1:5000/json-example', body, httpOptions);
+    return this.http.post('http://127.0.0.1:5000/model', body, httpOptions);
+  }
+
+  sendTopics(files , alpha, beta, KTopics, iterate) {
+    // , alpha, beta, KTopics, iterate
+   // , 'alpha': alpha, 'beta': beta, 'topics': KTopics, 'iterate' : iterate}
+    const packet = [{'files': files, 'alpha': alpha, 'beta': beta, 'topics': KTopics, 'iterate' : iterate}];
+    const body = JSON.stringify(packet);
+    return this.http.post('http://127.0.0.1:5000/model', body, httpOptions);
   }
 }
