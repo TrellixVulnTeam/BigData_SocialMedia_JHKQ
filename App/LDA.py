@@ -53,7 +53,7 @@ class LDA:
 
                 # sampling topic new_z for t
                 p_z = self.wordcount_topic_vocab[:, t] * wordcount_doc_topic / self.wordcount_each_topic
-                new_z = numpy.random.multinomial(1, p_z / p_z.sum()).argmax()
+                new_z = (numpy.random.multinomial(1, p_z / p_z.sum()).argmax())
 
                 # set z the new topic and increment counters
                 random_assign[n] = new_z
@@ -111,11 +111,11 @@ def output_word_topic_dist(lda, voca):
         for w in numpy.argsort(-phi[k])[:20]:
             print ("%s: %f (%d)" % (voca[w], phi[k,w], wordcount[k].get(w,0)))
 
-def main():
+def main(Mycorpus, Mytopics, Myalpha,Mybeta,Myiterate):
     import optparse
     import vocabulary
     parser = optparse.OptionParser()
-    parser.add_option("-f", dest="filename", help="corpus filename")
+   # parser.add_option("-f", dest="filename", help="corpus filename")
     parser.add_option("-c", dest="corpus", help="using range of Brown corpus' files(start:end)")
     parser.add_option("--alpha", dest="alpha", type="float", help="parameter alpha", default=0.5)
     parser.add_option("--beta", dest="beta", type="float", help="parameter beta", default=0.5)
@@ -126,13 +126,19 @@ def main():
     parser.add_option("--seed", dest="seed", type="int", help="random seed")
     parser.add_option("--df", dest="df", type="int", help="threshold of document freaquency to cut words", default=0)
     (options, args) = parser.parse_args()
-    if not (options.filename or options.corpus): parser.error("need corpus filename(-f) or corpus range(-c)")
+    #if not (options.filename or options.corpus): parser.error("need corpus filename(-f) or corpus range(-c)")
 
-    if options.filename:
-        corpus = vocabulary.load_file(options.filename)
-    else:
-        corpus = vocabulary.load_corpus(options.corpus)
-        if not corpus: parser.error("corpus range(-c) forms 'start:end'")
+    #if options.filename:
+       # corpus = vocabulary.load_file(options.filename)
+    #else:
+        #corpus = vocabulary.load_corpus(options.corpus)
+       # if not corpus: parser.error("corpus range(-c) forms 'start:end'")
+    corpus =vocabulary.load_file(Mycorpus)
+    ntopic = Mytopics
+    alpha = Myalpha
+    beta = Mybeta
+    iterate = Myiterate
+    print(type(ntopic))
     if options.seed != None:
         numpy.random.seed(options.seed)
 
@@ -140,12 +146,44 @@ def main():
     docs = [voca.doc_to_ids(doc) for doc in corpus]
     if options.df > 0: docs = voca.cut_low_freq(docs, options.df)
 
-    lda = LDA(options.K, options.alpha, options.beta, docs, voca.size(), options.smartinit)
-    print ("corpus=%d, words=%d, K=%d, a=%f, b=%f" % (len(corpus), len(voca.vocas), options.K, options.alpha, options.beta))
+    lda = LDA(int(ntopic), int(alpha), int(beta), docs, voca.size(), options.smartinit)
+    print ("corpus=%d, words=%d, K=%d, a=%f, b=%f" % (len(corpus), len(voca.vocas), int(ntopic), float(alpha), float(beta)))
    
     #import cProfile
     #cProfile.runctx('lda_learning(lda, options.iteration, voca)', globals(), locals(), 'lda.profile')
-    lda_learning(lda, options.iteration, voca)
+    lda_learning(lda, int(iterate), voca)
+
+def application():
+    from flask import Flask,request,jsonify
+    from flask_restful import Resource,Api
+    import json
+    from flask_cors import CORS
+
+    app = Flask(__name__)
+    CORS(app)
+   
+    @app.route('/home', methods=['GET'])
+    def model ():
+        print(main('C:/Users/tammy/Documents/python/toys.txt',2,float(0.2),float(0.5),5))    
+        test = 'hello world'
+        return test
+
+    @app.route('/model', methods=['POST'])
+    def data():
+        info = request.get_json()
+        
+        myFile = info[0]['files']
+        alpha = info[0]['alpha']
+        beta = info[0]['beta']
+        kTopics = info[0]['topics']
+        iterate = info[0]['iterate']
+        print (main("C:/Users/tammy/Documents/python/"+myFile+"",kTopics,float(alpha),float(beta),iterate))
+        return jsonify({'Data' : info})
+    
+    return app.run()
 
 if __name__ == "__main__":
-    main()
+    application()
+
+
+    
