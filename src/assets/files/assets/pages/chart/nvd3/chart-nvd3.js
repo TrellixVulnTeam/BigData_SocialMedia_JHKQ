@@ -1,5 +1,5 @@
-"use strict";
-$(document).ready(function() {
+
+ $(document).ready(function() {
     /*Line chart start*/
     /*These lines are all chart setup.  Pick and choose which chart features you want to utilize. */
     nv.addGraph(function() {
@@ -62,7 +62,7 @@ $(document).ready(function() {
             area: true //area - set to true if you want this line to turn into a filled area chart.
         }];
     }
-
+    
     /*Bar chart start*/
     nv.addGraph(function() {
         var chart = nv.models.discreteBarChart()
@@ -84,7 +84,7 @@ $(document).ready(function() {
 
         return chart;
     });
-
+    
     //Each bar represents a single discrete quantity.
     function barData() {
         return [{
@@ -155,6 +155,16 @@ $(document).ready(function() {
 
         return chart;
     });
+
+
+    function Process(url){
+       // var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
+        var Httpreq = new XMLHttpRequest(); // a new request
+        Httpreq.open("GET",url,false);
+        Httpreq.send(null);
+        return Httpreq.responseText;
+       
+    }
 
     /**************************************
      * Simple test data generator
@@ -256,41 +266,219 @@ $(document).ready(function() {
         nv.utils.windowResize(chart.update);
         return chart;
     });
+
+
+    /*Regular Pie chart*/
+    nv.addGraph(function() {
+        var chart = nv.models.pieChart()
+            .x(function(d) {
+                return d.label })
+            .y(function(d) {
+                return d.value })
+            .showLabels(true);
+
+        d3.select("#duringTopic").append('svg')
+            .datum(pieData2())
+            .transition().duration(350)
+            .call(chart);
+        nv.utils.windowResize(chart.update);
+        return chart;
+    });
+
+
+     //Donut chart example
+     nv.addGraph(function() {
+        var chart = nv.models.pieChart()
+            .x(function(d) {
+                return d.label })
+            .y(function(d) {
+                return d.value })
+            .showLabels(true) //Display pie labels
+            .labelThreshold(.05) //Configure the minimum slice size for labels to show up
+            .labelType("percent") //Configure what type of data to show in the label. Can be "key", "value" or "percent"
+            .donut(true) //Turn on Donut mode. Makes pie chart look tasty!
+            .donutRatio(0.35) //Configure how big you want the donut hole size to be.
+        ;
+
+        d3.select("#duringWord").append('svg')
+            .datum(pieData2())
+            .transition().duration(350)
+            .call(chart);
+        nv.utils.windowResize(chart.update);
+        return chart;
+    });
+
+
+     /*Regular Pie chart*/
+     nv.addGraph(function() {
+        var chart = nv.models.pieChart()
+            .x(function(d) {
+                return d.label })
+            .y(function(d) {
+                return d.value })
+            .showLabels(true);
+
+        d3.select("#finalTopic").append('svg')
+            .datum(pieData3())
+            .transition().duration(350)
+            .call(chart);
+        nv.utils.windowResize(chart.update);
+        return chart;
+    });
+
+
+     //Donut chart example
+     nv.addGraph(function() {
+        var chart = nv.models.pieChart()
+            .x(function(d) {
+                return d.label })
+            .y(function(d) {
+                return d.value })
+            .showLabels(true) //Display pie labels
+            .labelThreshold(.05) //Configure the minimum slice size for labels to show up
+            .labelType("percent") //Configure what type of data to show in the label. Can be "key", "value" or "percent"
+            .donut(true) //Turn on Donut mode. Makes pie chart look tasty!
+            .donutRatio(0.35) //Configure how big you want the donut hole size to be.
+        ;
+
+        d3.select("#finalWord").append('svg')
+            .datum(pieData3())
+            .transition().duration(350)
+            .call(chart);
+        nv.utils.windowResize(chart.update);
+        return chart;
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     //Pie chart example data. Note how there is only a single array of key-value pairs.
+    
+    function dataADT(label, value, color) {
+        this.label = label;
+        this.value = value;
+        this.color = color;
+    }
+
+    function fakeData() {
+        var dataArray =  [
+            [
+              "worldcup",
+              "win",
+              "day",
+              "world"
+            ],
+            [
+                "squad",
+                "happy",
+                "de",
+                "worldcup"
+            ],
+            [
+                "worldcup",
+                "fifa",
+                "russia",
+                "the"
+              ]
+        ];
+
+        var testData1 = new dataADT(dataArray[0], 7, '#4F5467')
+        var testData2 = new dataADT(dataArray[1], 7, '#FB9678')
+        var testData3 = new dataADT(dataArray[2], 7, '#CB2027')
+
+        dataArray[0] = testData1;
+        dataArray[1] = testData2;
+        dataArray[2] = testData3;
+
+        return dataArray;
+    }
+
+    function fakeData2() {
+        var dataArray =  [
+            [
+              "worldcup",
+              "ronaldo",
+              "messi"
+            ],
+            [
+                "worldcup",
+                "team",
+                "game"
+                
+            ],
+            [
+                "worldcup",
+                "argentina",
+                "team"
+                
+              ]
+        ];
+
+        var testData1 = new dataADT(dataArray[0], 7, '#007BB6')
+        var testData2 = new dataADT(dataArray[1], 7, '#3b5998')
+        var testData3 = new dataADT(dataArray[2], 7, '#B2E0A2')
+
+        dataArray[0] = testData1;
+        dataArray[1] = testData2;
+        dataArray[2] = testData3;
+
+        return dataArray;
+    }
+
+    function fakeData3() {
+        var dataArray =  [
+            [
+              "worldcup", "love",
+              "final", "france"
+            ],
+            [
+                "fake",
+                "croatia",
+                "twt", "modric"
+                
+            ],
+            [
+                "final",
+                "france",
+                "win"
+                
+              ]
+        ];
+
+        var testData1 = new dataADT(dataArray[0], 7, '#FF9F55')
+        var testData2 = new dataADT(dataArray[1], 7, '#FEC811')
+        var testData3 = new dataADT(dataArray[2], 7, '#4C5667')
+
+        dataArray[0] = testData1;
+        dataArray[1] = testData2;
+        dataArray[2] = testData3;
+
+        return dataArray;
+    }
+
+	
     function pieData() {
-        return [{
-            "label": "http",
-            "value": 29.765957771107,
-            "color": "#FB9678"
-        }, {
-            "label": "com",
-            "value": 0,
-            "color": "#FF9F55"
-        }, {
-            "label": "france",
-            "value": 32.807804682612,
-            "color": "#01C0C8"
-        }, {
-            "label": "n",
-            "value": 196.45946739256,
-            "color": "#00C292"
-        }, {
-            "label": "Five",
-            "value": 0.19434030906893,
-            "color": "#4F5467"
-        }, {
-            "label": "worldcup",
-            "value": 98.079782601442,
-            "color": "#4F5467"
-        }, {
-            "label": "final",
-            "value": 13.925743130903,
-            "color": "#000000"
-        }, {
-            "label": "cup",
-            "value": 5.1387322875705,
-            "color": "#CB2027"
-        }];
+       return fakeData();
+    }
+
+    function pieData2() {
+        return fakeData2();
+    }
+
+    function pieData3() {
+        return fakeData3();
     }
 
 });
+
+ 

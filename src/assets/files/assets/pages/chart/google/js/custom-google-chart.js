@@ -256,6 +256,8 @@ $(document).ready(function() {
     //Slice Visibility Threshold
     google.charts.load('current', { 'packages': ['corechart'] });
     google.charts.setOnLoadCallback(drawChartThreshold);
+    google.charts.setOnLoadCallback(drawChartThreshold2);
+    google.charts.setOnLoadCallback(drawChartThreshold3);
 
     function drawChartThreshold() {
 
@@ -263,9 +265,8 @@ $(document).ready(function() {
         dataThreshold.addColumn('string', 'Pizza');
         dataThreshold.addColumn('number', 'Populartiy');
         dataThreshold.addRows([
-            ['Positive',45],
-            ['Negative', 30],
-			['Neutral' , 25]
+            ['Subjectivity',0.4],
+            ['Polarity', 0.87]
 			
            
         ]);
@@ -277,6 +278,50 @@ $(document).ready(function() {
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('chart_Threshold'));
+        chart.draw(dataThreshold, optionsThreshold);
+    }
+
+    function drawChartThreshold2() {
+
+        var dataThreshold = new google.visualization.DataTable();
+        dataThreshold.addColumn('string', 'Pizza');
+        dataThreshold.addColumn('number', 'Populartiy');
+        dataThreshold.addRows([
+            ['Subjectivity',0.4],
+            ['Polarity', 0.2]
+			
+           
+        ]);
+
+        var optionsThreshold = {
+            title: 'Sentiment Overview',
+            sliceVisibilityThreshold: .2,
+            colors: ['#448aff', '#11c15b', '#ff5252', '#ffe100']
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('chart_Threshold2'));
+        chart.draw(dataThreshold, optionsThreshold);
+    }
+
+    function drawChartThreshold3() {
+
+        var dataThreshold = new google.visualization.DataTable();
+        dataThreshold.addColumn('string', 'Pizza');
+        dataThreshold.addColumn('number', 'Populartiy');
+        dataThreshold.addRows([
+            ['Subjectivity',0.87],
+            ['Polarity', 0.0]
+			
+           
+        ]);
+
+        var optionsThreshold = {
+            title: 'Sentiment Overview',
+            sliceVisibilityThreshold: .2,
+            colors: ['#448aff', '#11c15b', '#ff5252', '#ffe100']
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('chart_Threshold3'));
         chart.draw(dataThreshold, optionsThreshold);
     }
 });

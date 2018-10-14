@@ -26,7 +26,5 @@ export class AuthComponent implements OnInit {
       response => console.log(response),
       err => console.log(err),
     );
-
-    //this.router.navigate(['/dashboard']);
   }
 }

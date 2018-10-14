@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DbServicesService } from '../db-services.service';
+
 
 @Component({
   selector: 'app-topics',
@@ -7,12 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopicsComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private authService: DbServicesService) { }
+  todoLists: any;
   ngOnInit() {
   }
-
-  getValueFromSelect(value) {
-    console.log(value);
+  allTopics() {
+    this.authService.getTopics().subscribe(response => {
+      this.todoLists = response;
+      console.log(response);
+    });
   }
 }

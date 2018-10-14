@@ -23,7 +23,9 @@
     "@types/jquery": "^3.3.6",
     "core-js": "^2.5.4",
     "jquery": "^3.3.1",
+    "mysql": "github:mysqljs/mysql",
     "rxjs": "^6.0.0",
+    "xmlhttprequest": "^1.8.0",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {

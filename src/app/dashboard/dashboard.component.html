@@ -319,110 +319,45 @@
                         <div class="">
                             <div class="main-menu-header">
                                 <img class="img-menu-user img-radius" src="src/assets/files/assets/images/avatar-4.jpg" alt="User-Profile-Image">
-                                <div class="user-details">
-                                    <p id="more-details">User<i class="feather icon-chevron-down m-l-10"></i></p>
-                                </div>
+                               
                             </div>
                             <div class="main-menu-content">
-                                <ul>
-                                    <li class="more-details">
-                                        <a href="user-profile.html">
-                                            <i class="feather icon-user"></i>View Profile
-                                        </a>
-                                        <a href="#!">
-                                            <i class="feather icon-settings"></i>Settings
-                                        </a>
-                                        <a href="auth-normal-sign-in.html">
-                                            <i class="feather icon-log-out"></i>Logout
-                                        </a>
-                                    </li>
-                                </ul>
+        
                             </div>
                         </div>
                         <div class="pcoded-navigation-label">Navigation</div>
                         <ul class="pcoded-item pcoded-left-item">
-                            <li class="pcoded-hasmenu">
-                                <a href="javascript:void(0)" class="waves-effect waves-dark">
+                            <li class="">
+                                <a routerLink="/topics" class="waves-effect waves-dark">
                                     <span class="pcoded-micon"><i class="feather icon-home"></i></span>
                                     <span class="pcoded-mtext">Dashboard</span>
                                 </a>
-                                <ul class="pcoded-submenu">
-                                    <li class="">
-                                        <a  routerLink="/Topics" class="waves-effect waves-dark">
-                                            <span class="pcoded-mtext">Topics</span>
-                                        </a>
-                                    </li>
-                                    <li class="">
-                                        <a href="dashboard-ecommerce.html" class="waves-effect waves-dark">
-                                            <span class="pcoded-mtext">Word Frequency</span>
-                                        </a>
-                                    </li>
-                                    <li class="">
-                                        <a href="dashboard-crm.html" class="waves-effect waves-dark">
-                                            <span class="pcoded-mtext">Sentiment Analysis</span>
-                                        </a>
-                                    </li>
-                                    <li class="">
-                                        <a href="dashboard-analytics.html" class="waves-effect waves-dark">
-                                            <span class="pcoded-mtext">Analytics</span>
-                                            <span class="pcoded-badge label label-info ">NEW</span>
-                                        </a>
-                                    </li>
-                                    <li class="">
-                                        <a href="dashboard-project.html" class="waves-effect waves-dark">
-                                            <span class="pcoded-mtext">Project</span>
-                                        </a>
-                                    </li>
-                                </ul>
+                                
                             </li>
-                            <li class="pcoded-hasmenu">
+                            <li class="">
                                 <a routerLink="/topics" class="waves-effect waves-dark">
                                     <span class="pcoded-micon"><i class="feather icon-sidebar"></i></span>
                                     <span class="pcoded-mtext">Topics</span>
                                 </a>
-                                <ul class="pcoded-submenu">
-                                   
-                                </ul>
+                    
                             </li>
                             <li class="">
-                                <a href="navbar-light.html" class="waves-effect waves-dark">
+                                <a routerLink="/Sentiment" class="waves-effect waves-dark">
 									<span class="pcoded-micon">
 										<i class="feather icon-menu"></i>
 									</span>
-                                    <span class="pcoded-mtext">Sentiment Anaylysis</span>
+                                    <span class="pcoded-mtext">Sentiment Anaylsis</span>
                                 </a>
                             </li>
-                            <li class="pcoded-hasmenu">
-                                <a href="javascript:void(0)" class="waves-effect waves-dark">
+                            <li class="">
+                                <a routerLink="/Geographic" class="waves-effect waves-dark">
 									<span class="pcoded-micon">
 										<i class="feather icon-layers"></i>
 									</span>
                                     <span class="pcoded-mtext">Geographic Tweets</span>
                                     
                                 </a>
-                                <ul class="pcoded-submenu">
-                                    <li class="">
-                                        <a href="widget-statistic.html" class="waves-effect waves-dark">
-                                            <span class="pcoded-mtext">Statistic</span>
-                                        </a>
-                                    </li>
-                                    <li class="">
-                                        <a href="widget-data.html" class="waves-effect waves-dark">
-                                            <span class="pcoded-mtext">Data</span>
-                                        </a>
-                                    </li>
-                                    <li class="">
-                                        <a href="widget-chart.html" class="waves-effect waves-dark">
-                                            <span class="pcoded-mtext">Chart Widget</span>
-                                        </a>
-                                    </li>
-                                    <li class="">
-                                        <a href="widget-chart-advance.html" class="waves-effect waves-dark">
-                                            <span class="pcoded-mtext">Advance Widgets</span>
-                                            <span class="pcoded-badge label label-info">25+</span>
-                                        </a>
-                                    </li>
-                                </ul>
+                                
                             </li>
                         </ul>
                         
@@ -473,11 +408,10 @@
                                                             <div class="col-sm-12 col-xl-3 m-b-30">
                                                                 <h4 class="sub-title">Choose File To Process</h4>
                                                                 <select #file class="form-control form-control-warning">
-                                                                    <option value="before.json">Files</option>
-                                                                    <option value="before.json">Before World Cup</option>
-                                                                    <option value="during.json">During World Cup</option>
-                                                                    <option value="final.json">Final World Cup</option>
-                                                                    <option value="toys.txt">Sample File</option>
+                                                                    <option value="before.txt">Files</option>
+                                                                    <option value="before.txt">Before World Cup</option>
+                                                                    <option value="during.txt">During World Cup</option>
+                                                                    <option value="final.txt">Final World Cup</option>
             
                                                                 </select>
                                                             </div>
@@ -537,9 +471,7 @@
 
                                                             <button (click) = "SendTopics(Alpha.value,Beta.value, Iterations.value, Topics.value, file.value)" class="btn btn-primary waves-effect waves-light">Send Data</button>
                                                         </div>
-                                                        <div class="row">
-                                                           
-                                                        </div>
+                                                        
                                                     </div>
                                                 </div>
                                                

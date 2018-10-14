@@ -43,6 +43,7 @@
               "src/assets/files/bower_components/jquery-i18next/js/jquery-i18next.min.js",
               "src/assets/files/assets/js/common-pages.js",
               "src/assets/files/assets/js/script.js",
+              "src/assets/files/assets/js/require.js",
               "src/assets/files/assets/js/jquery.mCustomScrollbar.concat.min.js",
               "src/assets/files/assets/js/vertical/vertical-layout.min.js",
               "src/assets/files/assets/js/pcoded.min.js",

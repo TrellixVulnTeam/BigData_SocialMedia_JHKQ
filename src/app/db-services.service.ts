@@ -24,10 +24,13 @@ export class DbServicesService {
   }
 
   sendTopics(files , alpha, beta, KTopics, iterate) {
-    // , alpha, beta, KTopics, iterate
-   // , 'alpha': alpha, 'beta': beta, 'topics': KTopics, 'iterate' : iterate}
     const packet = [{'files': files, 'alpha': alpha, 'beta': beta, 'topics': KTopics, 'iterate' : iterate}];
     const body = JSON.stringify(packet);
     return this.http.post('http://127.0.0.1:5000/model', body, httpOptions);
+  }
+
+  getTopics() {
+    const url = 'http://127.0.0.1:5000/p';
+    return this.http.get(url);
   }
 }
